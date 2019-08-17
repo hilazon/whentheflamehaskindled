@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>When the flame has kindled...</title>
+		<link rel="icon" href="images/nemala.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/w3pro.css">
+		<link rel="stylesheet" href="css/w3-theme-shani.css">
+		<style>
+			td, th {
+				text-align: center;
+				padding: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="w3-container w3-card w3-theme" align="center">
+			<h1><img src="images/fire.png"/> When the flame has kindled <img src="images/fire.png" /> </h1>
+		</div>
+		<div class="w3-cell-row">
+			<div class="w3-cell w3-container" align="center">
+				<h1><div id="dateSince"></div></h1>
+			</div>
+		</div>
+		<hr>
+		
+		<center>
+			<table style="width:80%">
+				<tr>
+					<th>שנים</th>
+					<th>חודשים</th> 
+					<th>ימים</th>
+					<th>שעות</th>
+					<th>דקות</th>
+					<th>שניות</th>
+				</tr>
+				<tr>
+					<td id="years"></td>
+					<td id="months"></td> 
+					<td id="days"></td>
+					<td id="hours"></td>
+					<td id="minutes"></td> 
+					<td id="seconds"></td>
+				</tr>
+			</table>
+			<div id="dateSince"></div>
+		</center>
+	
+		<script>
+			var whenTheFlameHasKindled = new Date(2018, 8, 11, 0, 0, 0, 0);
+			
+			function setTimeSinceTheFlameHasKindled() {
+				var sinceTheFlameHasKindled = new moment.duration(Date.now() - whenTheFlameHasKindled.getTime());
+				
+				document.getElementById("years").innerHTML = Math.floor(sinceTheFlameHasKindled.asYears());
+				document.getElementById("months").innerHTML = Math.floor(sinceTheFlameHasKindled.asMonths());
+				document.getElementById("days").innerHTML = Math.floor(sinceTheFlameHasKindled.asDays());
+				document.getElementById("hours").innerHTML = Math.floor(sinceTheFlameHasKindled.asHours());
+				document.getElementById("minutes").innerHTML = Math.floor(sinceTheFlameHasKindled.asMinutes());
+				document.getElementById("seconds").innerHTML = Math.floor(sinceTheFlameHasKindled.asSeconds());
+				document.getElementById("dateSince").innerHTML = Date.now() - whenTheFlameHasKindled.getTime();
+			}
+			
+			window.setInterval(setTimeSinceTheFlameHasKindled, 1);
+		</script>
+	</body>
+	<script src="js/moment.js"></script>
+</html>
